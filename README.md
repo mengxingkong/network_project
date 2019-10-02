@@ -1,5 +1,7 @@
 创建 network_project项目
 
+复杂网络建模project
+
 项目环境 anoconda 需要的包文件写在 requirement 文件中
 
 1.完成 web-edu 数据的读写，测试增删功能 --- pandas
