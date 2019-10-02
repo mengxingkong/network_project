@@ -13,7 +13,7 @@
 3.计算网络的core分布，计算coreness
 
 
-4.动态删除节点，从新计算 第二第三步
+4.动态删除节点，重新计算 第二第三步
 
 
 5.计算网络的其他属性，如：distance average length etc.
