@@ -5,7 +5,7 @@ def load_data():
     从原始文件中读入数据并且保存
     :return:
     '''
-    file_path = " " # 输入文件所在文件夹
+    file_path = "data/" # 输入文件所在文件夹
     file_name = file_path + "web-edu.mtx"
 
     df = DataFrame(0, columns=range(1, 3032), index=range(1, 3032))\
