@@ -53,6 +53,7 @@ class DataReader(object):
         for line in lines[2:]:
             x,y = line.split(' ')[0], line.split(' ')[1]
             net_array[int(x)][int(y)] = 1
+            net_array[int(y)][int(x)] = 1
         np.save(os.path.join(self.data_dir, "net_matrix.npy"),net_array)
         
 
@@ -60,7 +61,7 @@ class DataReader(object):
 if __name__ == "__main__":
     
     reader = DataReader()
-    # reader.mtx2npy() 执行一次 保存为 npy 文件就行了
+    reader.mtx2npy() #执行一次 保存为 npy 文件就行了
     net_array = reader.data_reader()
     print(net_array.shape)
     print(np.sum(net_array)) # 输出数组总和为 6474 说明 加载的边数是对的
