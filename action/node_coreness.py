@@ -63,7 +63,7 @@ def node_coreness_dis(filename):
     plt.xticks(range(1, y_axes.shape[0] + 1))  # 显示横坐标
     plt.scatter(range(1, y_axes.shape[0] + 1), y_axes)
     print(y_axes)
-    plt.xlabel("coreness");
+    plt.xlabel("coreness")
     plt.ylabel("nodes number of coreness")
     plt.show()
 
