@@ -18,7 +18,7 @@ def node_degree(net_array=[]):
         print("请传入网络的邻接矩阵表示")
         return []
 
-
+# 计算 结点的度分布 
 def degree_distribution(degree_array=[]):
     if degree_array != []:
         max_degree = np.max(degree_array)
