@@ -17,10 +17,12 @@ class NetDistance(object):
         
         # 把邻接矩阵中 为0 的位置全部换位 inf 无无穷大
         self.net_distance[ np.where( self.net_distance == 0 ) ] = float("inf")
+
+        # result_net_distance 本来是要保存 使用 dijkstra 计算出来的所有节点之间的最短路径， 但是时间复杂度太高，计算时间太长，所以现在基本没用
         self.result_net_distance = self.net_distance
         self.is_all_node_distance_caculated = False
 
-    # 使用 dijkstral 算法
+    # 使用 dijkstral 算法 计算 单源最短路径
     def node_distance(self, original_node = 0 ):
         if original_node == 0:
             print("请输入大于 0 的节点")
@@ -29,6 +31,7 @@ class NetDistance(object):
         dist = self.net_distance[original_node]
         book[original_node] = 1
 
+        #算法核心语句
         for _ in range(1, self.node_count):
             min = float("inf")
             min_index = 0
@@ -44,19 +47,20 @@ class NetDistance(object):
         return dist
 
     #这里暂时先使用 dijkstra 算法得出的结果
+    #计算两点间的最短路径长度
     def between_distance(self, source, target):
         source_dist = self.node_distance( source )
         return source_dist[ target ]
 
-
+    #暂时现不用看这个函数
     def all_node_distance(self):
         if self.is_all_node_distance_caculated == False:
             for i in range(1, self.node_count):
-                self.result_net_distance = self.node_distance( i )
+                self.result_net_distance[i] = self.node_distance( i )
             self.is_all_node_distance_caculated = True
         return
 
-    # 使用 dijkstra 计算 网络直径 发现 太慢了
+    # 使用 dijkstra 计算 网络直径 发现 太慢了 所以暂时不用看这个函数
     def net_diameter(self):
         if self.is_all_node_distance_caculated == False:
             self.all_node_distance()
@@ -70,7 +74,7 @@ class NetDistance(object):
         pass
 
 
-    # 使用 广度优先遍历计算网络的 直径和多有节点间的距离
+    # 使用 广度优先遍历计算网络的 直径和节点间的距离
     # source 表示 从那个节点开始 是 list []
     def _single_shortest_path_length_bfs(self, source):
         seen = {}
