@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="395641f5-19e2-436d-9d79-68503f7ec85c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/delete_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/action/delete_nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action/networkx_pratice.py" beforeDir="false" afterPath="$PROJECT_DIR$/action/networkx_pratice.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/action/node_coreness.py" beforeDir="false" afterPath="$PROJECT_DIR$/action/node_coreness.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/coreness.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/coreness.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,17 +16,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/network_project$node_coreness.coverage" NAME="node_coreness Coverage Results" MODIFIED="1570238159172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/action" />
+    <SUITE FILE_PATH="coverage/network_project$node_coreness.coverage" NAME="node_coreness Coverage Results" MODIFIED="1570347885533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/action" />
     <SUITE FILE_PATH="coverage/network_project$11.coverage" NAME="11 Coverage Results" MODIFIED="1570186592007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/network_project$data_reader.coverage" NAME="data_reader Coverage Results" MODIFIED="1570238149410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/network_project$node_clustering.coverage" NAME="node_clustering Coverage Results" MODIFIED="1570355088239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/action" />
+    <SUITE FILE_PATH="coverage/network_project$networkx_pratice.coverage" NAME="networkx_pratice Coverage Results" MODIFIED="1570348239829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/action" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="node_coreness.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+            <state relative-caret-position="1805">
+              <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -31,22 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delete_nodes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action/delete_nodes.py">
+      <file leaf-file-name="node_clustering.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/node_clustering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node_degree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action/node_degree.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            <state relative-caret-position="-985">
+              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -54,13 +48,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_reader.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/analysis/data_reader.py">
+      <file leaf-file-name="clustering coefficient.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/clustering coefficient.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-114" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="networkx_pratice.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/action/networkx_pratice.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#749#1542#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cluster.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Miniconda3/envs/pydata/Lib/site-packages/networkx/algorithms/cluster.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2698">
+              <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -89,7 +101,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/11.py" />
+        <option value="$PROJECT_DIR$/action/delete_nodes.py" />
         <option value="$PROJECT_DIR$/action/node_coreness.py" />
+        <option value="$PROJECT_DIR$/action/node_clustering.py" />
+        <option value="$PROJECT_DIR$/action/networkx_pratice.py" />
       </list>
     </option>
   </component>
@@ -100,18 +115,19 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="751" />
-    <option name="y" value="107" />
-    <option name="width" value="1288" />
+    <option name="x" value="750" />
+    <option name="y" value="105" />
+    <option name="width" value="1290" />
     <option name="height" value="1090" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,6 +154,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.node_coreness">
+  <component name="RunManager" selected="Python.node_clustering">
     <configuration name="11" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="network_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,6 +220,44 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="networkx_pratice" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="network_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/action" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/action/networkx_pratice.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="node_clustering" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="network_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/action" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/action/node_clustering.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="node_coreness" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="network_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,9 +281,13 @@
       <item itemvalue="Python.node_coreness" />
       <item itemvalue="Python.11" />
       <item itemvalue="Python.data_reader" />
+      <item itemvalue="Python.networkx_pratice" />
+      <item itemvalue="Python.node_clustering" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.node_clustering" />
+        <item itemvalue="Python.networkx_pratice" />
         <item itemvalue="Python.node_coreness" />
         <item itemvalue="Python.data_reader" />
         <item itemvalue="Python.11" />
@@ -250,22 +309,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32928476" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32928476" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32928476" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32928476" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3711201" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24125874" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3711201" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25174826" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994602" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32937062" />
@@ -275,6 +333,30 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32928476" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.32937062" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24825175" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994602" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3711201" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32928476" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32928476" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -284,10 +366,100 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1805">
+          <caret line="95" column="38" lean-forward="true" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/networkx_pratice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#749#1542#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/site-packages/networkx/algorithms/cluster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2698">
+          <caret line="149" column="42" lean-forward="true" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/node_clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1558">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/delete_nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/node_degree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/delete_nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/node_degree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -311,9 +483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -321,16 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1007">
           <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-186113762/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="2886" column="8" selection-start-line="2886" selection-start-column="8" selection-end-line="2886" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -347,46 +506,117 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/11.py" />
+    <entry file="file://$PROJECT_DIR$/action/coreness.json" />
+    <entry file="file://$PROJECT_DIR$/analysis/data_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/request.txt" />
+    <entry file="file://$PROJECT_DIR$/action/node_distance.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/action/node_degree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="342">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="240" column="4" selection-start-line="240" selection-start-column="4" selection-end-line="240" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-186113762/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="3601" column="8" selection-start-line="3601" selection-start-column="8" selection-end-line="3601" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coreness_node.json" />
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="179" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coreness.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4854" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/dis1.json" />
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="310" column="25" lean-forward="true" selection-start-line="310" selection-start-column="25" selection-end-line="310" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/site-packages/networkx/algorithms/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="974">
+          <caret line="186" column="22" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/action/delete_nodes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/coreness.json" />
-    <entry file="file://$PROJECT_DIR$/data/coreness.json">
+    <entry file="file://D:/Miniconda3/envs/pydata/Lib/site-packages/networkx/algorithms/cluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1016" />
+        <state relative-caret-position="2698">
+          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/action/node_coreness.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+        <state relative-caret-position="1805">
+          <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/data_reader.py">
+    <entry file="file://$PROJECT_DIR$/action/networkx_clustering.json" />
+    <entry file="file://$PROJECT_DIR$/action/node_clustering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-985">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/clustering coefficient.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/networkx_pratice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#749#1542#0" />
           </folding>
         </state>
       </provider>

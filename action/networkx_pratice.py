@@ -11,6 +11,7 @@ sys.path.append(rootPath)
 from analysis.data_reader import DataReader 
 from node_distance import NetDistance
 
+
 def create_graph(file_path="./../data/web-edu.mtx"):
     
     if os.path.exists(file_path):
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     # print(dist1)
     # print(np.where(dist1 == 0))
 
+
     reader = DataReader()
     net_array = reader.data_reader()
     net_distance = NetDistance(net_array)
@@ -96,4 +98,13 @@ if __name__ == "__main__":
         dist1[i] = nx.dijkstra_path_length(G, 1, i)
 
     print(np.where(dist1 == 0))
+
+    # reader = DataReader()
+    # net_array = reader.data_reader()
+    # net_distance = NetDistance(net_array)
+    # node_dist1 = net_distance.node_distance(2)
+
+    # print(node_dist1)
+    # print(np.where(node_dist1 == float("inf")))
+    # print(nx.average_shortest_path_length(G))
 
