@@ -28,7 +28,7 @@ def degree_distribution(degree_array=[]):
             # np.where 返回的是一个元组 第一个元素是 index 的数组
             distri_array[i] =len( np.where(degree_array==i)[0] )
         # 计算度的概率
-        distri_array[1:] = distri_array[1:] / (degree_array.size - 1)
+        distri_array = distri_array / (degree_array.size - 1)
         return distri_array
     else:
         print("请传入节点的度数矩阵")
