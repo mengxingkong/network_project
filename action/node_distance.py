@@ -5,6 +5,8 @@ rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 import numpy as np
 from analysis.data_reader import DataReader 
+import json
+import matplotlib.pyplot as plt
 
 class NetDistance(object):
 
@@ -90,7 +92,7 @@ class NetDistance(object):
                     for i in np.where( self.net_array[v] == 1 )[0]:
                         if i not in next_list:
                             next_list.append(i)
-                    yield (v, level)
+                    yield (str(v), level)
             level += 1
         del seen
 
@@ -103,6 +105,9 @@ class NetDistance(object):
         node_diameter = []
         for i in range(1, self.node_count): 
             nodelevel_dict = self.single_shortest_path_length_bfs([i])
+            if len( nodelevel_dict.values() ) != self.node_count - 1:
+                print("网络是不连通的，网络直径无穷大 inf")
+                return float("inf")
             mid = max( nodelevel_dict.values() )
             node_diameter.append( mid )
             print(i,mid)
@@ -125,9 +130,33 @@ class NetDistance(object):
         all_dict = dict()
         for i in range(1, self.node_count):
             nodelevel_dict = self.single_shortest_path_length_bfs([i])
-            all_dict.update({i:nodelevel_dict})
-            print(nodelevel_dict)
+            all_dict.update({str(i):nodelevel_dict})
+            print(i,max(nodelevel_dict.values()))
         return all_dict
+
+    def write_dict_to_file(self, all_dict={}, file_path="../data/all_pair_distance.json"):
+        all_distance_json = json.dumps(all_dict)
+        with open(file_path, 'w') as f:
+            f.write(all_distance_json)
+
+    def read_jsonFile_to_dict(self, file_path="../data/all_pair_distance.json"):
+        with open(file_path, 'r') as f:
+            all_dict = json.load(f)
+            return all_dict
+
+    def all_pair_lenth_distribution(self, all_dict):
+        distri_array = np.zeros(self.node_count)
+        max_length = 0
+        for i in range(1,self.node_count):
+            values_list = all_dict[str(i)].values()
+            max_l = max(values_list)
+            if max_l > max_length:
+                max_length = max_l
+            for j in values_list:
+                distri_array[j] += 1
+        return distri_array[:max_length+1]
+        
+
 
 if __name__ == "__main__":
     reader = DataReader()
@@ -151,5 +180,25 @@ if __name__ == "__main__":
     #测试 bfs 计算的 diameter
     # print(net_distance.diameter_bfs())
 
-    #测试所有节点间的距离
-    print(net_distance.average_path_length_bfs())
+    #测试所有节点间的平均最短距离
+    # print(net_distance.average_path_length_bfs())
+
+    #绘制 网络最短距离的分布图
+
+    # 保存json 文件   
+    # all_dict = net_distance.all_pair_node_distance()
+    # net_distance.write_dict_to_file(all_dict)
+    # print(all_dict.keys)
+
+    #  读取json 文件
+    all_dict = net_distance.read_jsonFile_to_dict()
+    
+    # 测试 最短距离分布
+    distri_array = net_distance.all_pair_lenth_distribution(all_dict)
+    print(distri_array)
+
+    # 绘制最短距离分布图
+    plt.bar(range(len(distri_array)), distri_array)
+    plt.show()
+    plt.savefig("./path_distribution.png")
+    
