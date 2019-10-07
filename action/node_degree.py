@@ -36,29 +36,39 @@ def degree_distribution(degree_array=[]):
         return
 
 # 因为在前端显示需要进行 节点 json数据的保存
-def write_node_degree_to_file(degree_array=[], file_path="../data/net_node_degree.json"):
+def write_node_degree_to_file(degree_array=[], file_path="../data/degree/net_node_degree.json"):
     node_list = list()
     for i in range(1, degree_array.size):
-        node_dict = {"name":i,"value":degree_array[i],"symbolSize":degree_array[i]}
+        node_dict = {"name":str(i),"value":degree_array[i],"symbolSize":degree_array[i]}
         node_list.append(node_dict)
     all_node_degree_json = json.dumps(node_list)
     with open(file_path, 'w') as f:
         f.write(all_node_degree_json)
 
 # 显示网络关系图谱 需要 节点之间的连接
-def write_node_link_to_file(original_file_path="../data/web-edu.mtx", target_file_path="../data/all_node_link.json"):
+def write_node_link_to_file(original_file_path="../data/web-edu.mtx", target_file_path="../data/degree/all_node_link.json"):
     link_list = list()
     with open(original_file_path) as f:
         lines = f.readlines()[2:]
         for line in lines:
             head, tail = [int(x) for x in line.split()]
-            link_dict = {"source":tail,"target":head}
+            link_dict = {"source":str(tail),"target":str(head)}
             link_list.append(link_dict)
     all_node_link_json = json.dumps(link_list)
     with open(target_file_path, 'w') as f:
         f.write(all_node_link_json)
 
-    
+# 将度分布 写入 json 文件
+def write_node_degree_distribution_to_file(distri_array=[], file_path="../data/degree/degree_distribution.json"):
+    list_x = list()
+    list_y = list()
+    for i in range(1,distri_array.size):
+        list_x.append(str(i))
+        list_y.append(distri_array[i])
+    degree_dict = {"x":list_x,"y":list_y}
+    # print(degree_dict)
+    with open(file_path, 'w') as f:
+        f.write( json.dumps(degree_dict) )
 
 if __name__ == "__main__":
     reader = DataReader()
@@ -72,12 +82,15 @@ if __name__ == "__main__":
     print(degree_array.size)
 
 
-    # 生成 json 数据、
+
+    # # 生成 json 数据、
     # write_node_degree_to_file(degree_array)
-    write_node_link_to_file()
+    # write_node_link_to_file()
+
     # # 计算节点度分布
-    # distri_array = degree_distribution(degree_array)
-    # print(distri_array)
+    distri_array = degree_distribution(degree_array)
+    print(distri_array)
+    write_node_degree_distribution_to_file(distri_array)
 
     # # 计算度概率之和 
     # print(np.sum(distri_array)) # 1.0000000000000002  概率和为1

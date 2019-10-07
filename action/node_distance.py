@@ -156,7 +156,16 @@ class NetDistance(object):
                 distri_array[j] += 1
         return distri_array[:max_length+1]
         
-
+    def write_distance_distribution_to_file(self, distri_array=[], file_path="../data/distance/distance_distribution.json"):
+        list_x = list()
+        list_y = list()
+        for i in range(1,distri_array.size):
+            list_x.append(str(i))
+            list_y.append(distri_array[i])
+        distance_dict = {"x":list_x,"y":list_y}
+        # print(degree_dict)
+        with open(file_path, 'w') as f:
+            f.write( json.dumps(distance_dict) )
 
 if __name__ == "__main__":
     reader = DataReader()
@@ -196,6 +205,9 @@ if __name__ == "__main__":
     # 测试 最短距离分布
     distri_array = net_distance.all_pair_lenth_distribution(all_dict)
     print(distri_array)
+
+    # 将最短距离分布 写入 json 文件
+    net_distance.write_distance_distribution_to_file(distri_array)
 
     # 绘制最短距离分布图
     plt.bar(range(len(distri_array)), distri_array)
