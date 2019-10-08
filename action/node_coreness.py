@@ -122,4 +122,4 @@ if __name__ == "__main__":
     # 保存文件到data/coreness/
     # rootPath = '../data/coreness/'
     rootPath = '../data/coreness/corenss_distribution.json'
-    # write_corenss_tofile(coreness, rootPath)
+    write_corenss_tofile(coreness, rootPath)
