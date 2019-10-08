@@ -9,7 +9,7 @@ import sys
 rootPath = os.path.dirname(__file__)
 sys.path.append(rootPath)
 
-from action.delete_nodes import delete_nodes
+# from action.delete_nodes import delete_nodes
 
 
 # 计算每个节点的coreness 参考networkx中解法
@@ -50,7 +50,7 @@ def node_coreness(adj_matrix):
 
 
 #保存coreness内容为前端的json数据格式
-def write_corenss_tofile(coreness, rootPath='../data/coreness/'):
+def write_corenss_tofile(coreness, rootPath='../data/coreness/corenss_distribution.json'):
     '''
 
     :param coreness:
@@ -59,8 +59,9 @@ def write_corenss_tofile(coreness, rootPath='../data/coreness/'):
     '''
 
     # 保存的文件名
-    filename = "corenss_distribution.json"
-    file_path = os.path.join(rootPath, filename)
+    # filename = "corenss_distribution.json"
+    # file_path = os.path.join(rootPath, filename)
+    file_path = rootPath
     max_axes = max(coreness.values())
     dis = [0 for _ in range(1, max_axes + 1)]  # 左闭右开
     print(len(dis))
@@ -119,5 +120,6 @@ if __name__ == "__main__":
     node_coreness_dis(coreness, title)
 
     # 保存文件到data/coreness/
-    rootPath = '../data/coreness/'
+    # rootPath = '../data/coreness/'
+    rootPath = '../data/coreness/corenss_distribution.json'
     # write_corenss_tofile(coreness, rootPath)
