@@ -13,11 +13,10 @@ from action.delete_nodes import delete_nodes
 
 
 # 计算每个节点的coreness 参考networkx中解法
-def node_coreness(adj_matrix, file_save):
+def node_coreness(adj_matrix):
     '''
     :np.where 返回的是tuple 去第一个元素
     :param adj_matrix: 邻接矩阵 动态变化 type:np.array
-    :file_save : 保存数据的位置
     :return: coreness
     '''
 
@@ -41,35 +40,50 @@ def node_coreness(adj_matrix, file_save):
                     Degree[nodeDegree[adj_node]].remove(adj_node)
                     nodeDegree[adj_node] -= 1
                     Degree[nodeDegree[adj_node]].append(adj_node)
-    # 删除字典中第一个键为0的元素
+    # 删除字典中第一个键为0的元素 1: 2: .... 3031:
     coreness.pop(0)
+    return coreness
     # 保存文件到json
-    file_save = os.path.join(file_save, 'coreness.json')
-    with open(file_save, 'w') as fp:
-        json.dump(coreness, fp)
+    # file_save = os.path.join(file_save, 'coreness.json')
+    # with open(file_save, 'w') as fp:
+    #     json.dump(coreness, fp)
+
+
+#保存coreness内容为前端的json数据格式
+def write_corenss_tofile(coreness, rootPath='../data/coreness/'):
+    '''
+
+    :param coreness:
+    :param rootPath: 根目录 比如data/coreness/
+    :return:
+    '''
+
+    # 保存的文件名
+    filename = "corenss_distribution.json"
+    file_path = os.path.join(rootPath, filename)
+    max_axes = max(coreness.values())
+    dis = [0 for _ in range(1, max_axes + 1)]  # 左闭右开
+    print(len(dis))
+    for key, value in coreness.items():
+        dis[value - 1] += 1
+
+    coreness_dict = {'x': [i for i in range(1, max_axes + 1)], 'y': dis}
+
+    with open(file_path, 'w') as fp:
+        json.dump(coreness_dict, fp)
 
 
 # 计算节点的coreness分布
-def node_coreness_dis(filename, title):
+def node_coreness_dis(coreness, title):
     '''
-
-    :param filename: 保存coreness.json的位置
     :param title: 折线图的title
     :return:
     '''
-    path = os.getcwd()
-    filepath = os.path.join(path, filename)
     dis = np.zeros((30))
-    if (os.path.exists(filepath)):
-        with open(filepath, 'r') as fp:
-            coreness = json.load(fp)
-            for key, value in coreness.items():
-                dis[value] += 1
-    else:
-        print("no file")
-        exit(0)
-    # with open("dis1.json", 'w') as fp:
-    #     json.dump(list(dis), fp)
+
+    for key, value in coreness.items():
+        dis[value] += 1
+
     y_axes = np.delete(dis, 0)
     plt.xticks(range(1, y_axes.shape[0] + 1))  # 显示横坐标
     # 散点图
@@ -89,16 +103,21 @@ if __name__ == "__main__":
     '''
     data = DataReader()
     # title = "coreness distribution(70% nodes deleted)"
-    # 保存coreness文件的位置
-    file_save = '../data/'
+
     title = "coreness distribution (99% nodes deleted)"
-    # 保存的coreness文件名
-    filename = '../data/coreness.json'
 
     # 传入邻接矩阵
     adj_matrix = data.data_reader()
 
-    tem_matrix = delete_nodes(adj_matrix)
 
-    coreness = node_coreness(tem_matrix, file_save)
-    node_coreness_dis(filename, title)
+    # 随机删除节点
+    # tem_matrix = delete_nodes(adj_matrix)
+
+    coreness = node_coreness(adj_matrix)
+
+    # coreness的分布
+    node_coreness_dis(coreness, title)
+
+    # 保存文件到data/coreness/
+    rootPath = '../data/coreness/'
+    # write_corenss_tofile(coreness, rootPath)

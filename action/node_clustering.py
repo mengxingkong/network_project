@@ -39,10 +39,10 @@ def cal_clustring(adj_matrix):
             # print(fenzi)
             fenzi = fenzi / 2
             clu_fenmu = math.factorial(fenmu) / (
-                        math.factorial(fenmu - 2) * math.factorial(2))  # 分母是从与index相邻节点任取2个点的组合数
+                    math.factorial(fenmu - 2) * math.factorial(2))  # 分母是从与index相邻节点任取2个点的组合数
             clustering[index] = np.float(fenzi / clu_fenmu)
-    with open("../data/clustering coefficient.json", 'w') as fp:  # 结果保存在data文件夹下的clustering coefficient.json中
-        json.dump(clustering, fp)
+    # with open("../data/clustering coefficient.json", 'w') as fp:  # 结果保存在data文件夹下的clustering coefficient.json中
+    #     json.dump(clustering, fp)
     return clustering
 
 
@@ -66,13 +66,36 @@ def clu_pro(filepath=None):
     return max_num, ave
 
 
+# 保存每个节点的聚类系数到data/cluster/cluster.json文件
+def write_cluster_tofile(clustering, rootPath='../data/cluster/'):
+    '''
+
+    :param clustering: 每个节点的聚类系数
+    :param rootPath: 保存文件的根目录
+    :return:
+    '''
+    filename = input("输入保存的文件名:")
+    file_path = os.path.join(rootPath, filename)
+    with open(file_path, 'w') as fp:
+        json.dump(clustering, fp)
+
+
 if __name__ == "__main__":
     filename = "../data/clustering coefficient.json"
     data = DataReader()
     adj_matrix = data.data_reader()
+
+    # 计算每个节点的聚类系数
     my_cal = cal_clustring(adj_matrix)
-    max_num, ave_num = clu_pro(filename)
-    print("节点聚类系数最大值{}, 平均值{}".format(max_num, ave_num))
+
+    # 计算clustering的最大和最小值
+    # max_num, ave_num = clu_pro(filename)
+    # print("节点聚类系数最大值{}, 平均值{}".format(max_num, ave_num))
+
+    # 保存文件到data/cluster文件夹
+    rootPath = '../data/cluster/'
+    write_cluster_tofile(my_cal, rootPath)
+
     # 与nexworkx进行对比
     # graph = create_graph()
     # nx_result = nx.clustering(graph)
