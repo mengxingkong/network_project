@@ -7,6 +7,8 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 from analysis.data_reader import DataReader
+from action.node_degree import node_degree, degree_distribution, write_node_degree_distribution_to_file
+from action.node_distance import NetDistance
 
 
 # 随机删除number个节点，每删除一个节点去掉矩阵的对应行和列
@@ -24,15 +26,18 @@ def delete_node_random(number, net_array):
 
 
 # 获得需要删除的比例，调用随机删除节点函数进行删除
-# @return 删除节点后的矩阵 @param 原矩阵
-def delete_nodes(net_array):
+# @return 删除节点后的矩阵 @param net_array原矩阵 proportion要删除的比例
+def delete_nodes(net_array, proportion = -1):
     nodes_number = net_array.shape[0]
-    proportion = input('please enter the proportion of the node you want to delete ')
+    if proportion < 0:
+       proportion = input('please enter the proportion of the node you want to delete ')
 
     delete_nodes_number = 0
-
-    pattern = re.compile(r'^[\+]?\d+(\.\d+)?$')
-    while not pattern.match(proportion) or float(proportion) > 1.0 or float(proportion) < 0.0:
+    is_number = True
+    if not isinstance(proportion, (int, float)):
+      pattern = re.compile(r'^[\+]?\d+(\.\d+)?$')
+      is_number = pattern.match(proportion)
+    while not is_number or float(proportion) > 1.0 or float(proportion) < 0.0:
         proportion = input('please enter the proportion of the node you want to delete ')
     else:
         delete_nodes_number = math.ceil(float(proportion) * nodes_number)
@@ -42,3 +47,24 @@ def delete_nodes(net_array):
         'deleted {0} nodes, which account for {1} of the total number of nodes'.format(delete_nodes_number, proportion))
 
     return net_array
+
+
+if __name__ == "__main__":
+    reader = DataReader()
+    net_array = reader.data_reader()
+
+    for i in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+      # 删除i比例的节点
+      nodes_deleted = delete_nodes(net_array, i)
+      # 生成对应的度分布
+      node_degree_distribution = degree_distribution(node_degree(net_array))
+      node_degree_path = "../data/attack/degree_distribution_{}.json".format(i)
+      # 生成degree_distribution_删除比例.json文件
+      write_node_degree_distribution_to_file(node_degree_distribution, node_degree_path)
+
+    # # 生成degree_distribution_删除比例.json文件
+    # net_distance = NetDistance(nodes_deleted)
+    # all_dict = net_distance.read_jsonFile_to_dict()
+    # distri_array = net_distance.all_pair_lenth_distribution(all_dict)
+    # node_distance_path = "../data/attack/distance_distribution.json"
+    # net_distance.write_distance_distribution_to_file(distri_array, node_distance_path)
