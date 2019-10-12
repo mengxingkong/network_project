@@ -7,6 +7,7 @@ import numpy as np
 from analysis.data_reader import DataReader 
 import json
 import matplotlib.pyplot as plt
+import datetime
 
 class NetDistance(object):
 
@@ -172,19 +173,34 @@ if __name__ == "__main__":
     net_array = reader.data_reader()
     net_distance = NetDistance(net_array)
 
-    # node_dist = net_distance.node_distance(1)
-    # print(node_dist)
-    # node_dist[ np.where(node_dist==float("inf")) ] = -1
+    # # 对比两个算法的时间复杂度
+    # start_time = datetime.datetime.now()
+    # for i in range(1,10):
+    #     net_distance.node_distance(i)
+    # # node_dist[ np.where(node_dist==float("inf")) ] = -1
+    # end_time = datetime.datetime.now()
+
+    # inter_time = (end_time-start_time).seconds
+    # print("dijkstra single source: ", inter_time)
+
+    # start_time = datetime.datetime.now()
+    # for i in range(1,10):
+    #     net_distance.single_shortest_path_length_bfs([i])
+    # # node_dist[ np.where(node_dist==float("inf")) ] = -1
+    # end_time = datetime.datetime.now()
+    # inter_time = (end_time-start_time).seconds
+    # print("bfs single source: ", inter_time)
+    #######################################################################
+
     # print(np.max(node_dist))
     # print(np.where(node_dist == 7))
 
     # 测试网络直径
     # diameter = net_distance.net_diameter()
 
-    #测试 bfs
-    #为什么广搜 可以遍历到 节点3 但是 dijskral 找不到最短路径
-    # s = net_distance.single_shortest_path_length_bfs([1])
-    # print(max(s.values()))
+    # #测试 bfs
+    s = net_distance.single_shortest_path_length_bfs([1])
+    print(s)
 
     #测试 bfs 计算的 diameter
     # print(net_distance.diameter_bfs())
@@ -199,18 +215,18 @@ if __name__ == "__main__":
     # net_distance.write_dict_to_file(all_dict)
     # print(all_dict.keys)
 
-    #  读取json 文件
-    all_dict = net_distance.read_jsonFile_to_dict()
+    # #  读取json 文件
+    # all_dict = net_distance.read_jsonFile_to_dict()
     
-    # 测试 最短距离分布
-    distri_array = net_distance.all_pair_lenth_distribution(all_dict)
-    print(distri_array)
+    # # 测试 最短距离分布
+    # distri_array = net_distance.all_pair_lenth_distribution(all_dict)
+    # print(distri_array)
 
-    # 将最短距离分布 写入 json 文件
-    net_distance.write_distance_distribution_to_file(distri_array)
+    # # 将最短距离分布 写入 json 文件
+    # net_distance.write_distance_distribution_to_file(distri_array)
 
-    # 绘制最短距离分布图
-    plt.bar(range(len(distri_array)), distri_array)
-    plt.show()
-    plt.savefig("./path_distribution.png")
+    # # 绘制最短距离分布图
+    # plt.bar(range(len(distri_array)), distri_array)
+    # plt.show()
+    # plt.savefig("./path_distribution.png")
     

@@ -62,7 +62,7 @@ def write_node_link_to_file(original_file_path="../data/web-edu.mtx", target_fil
 def write_node_degree_distribution_to_file(distri_array=[], file_path="../data/degree/degree_distribution.json"):
     list_x = list()
     list_y = list()
-    for i in range(1,distri_array.size):
+    for i in range(distri_array.size):
         list_x.append(str(i))
         list_y.append(distri_array[i])
     degree_dict = {"x":list_x,"y":list_y}
