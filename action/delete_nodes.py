@@ -52,35 +52,47 @@ def delete_nodes(net_array, proportion = -1):
 
     return net_array
 
-
-if __name__ == "__main__":
+def test_delete_node_distance():
     reader = DataReader()
     net_array = reader.data_reader()
+    x_list = [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    for i in x_list:
+        # 删除i比例的节点
+        nodes_deleted = delete_nodes(net_array, i)
+        net_distance = NetDistance(nodes_deleted)
+        all_dict = net_distance.all_pair_node_distance()
+        distri_array = net_distance.all_pair_lenth_distribution(all_dict)
+        net_distance.write_distance_distribution_to_file(distri_array,  file_path="../data/distance/distance_distribution_test_"+str(i)+".json")
 
-    for i in [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
-      # 删除i比例的节点
-      nodes_deleted = delete_nodes(net_array, i)
+if __name__ == "__main__":
+    # reader = DataReader()
+    # net_array = reader.data_reader()
 
-      # 生成对应的度分布
-      node_degree_distribution = degree_distribution(node_degree(nodes_deleted))
-      node_degree_path = "../data/attack/degree_distribution_{}.json".format(i)
-      # 生成degree_distribution_删除比例.json文件
-      write_node_degree_distribution_to_file(node_degree_distribution, node_degree_path)
+    # for i in [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+    #   # 删除i比例的节点
+    #   nodes_deleted = delete_nodes(net_array, i)
+
+    #   # 生成对应的度分布
+    #   node_degree_distribution = degree_distribution(node_degree(nodes_deleted))
+    #   node_degree_path = "../data/attack/degree_distribution_{}.json".format(i)
+    #   # 生成degree_distribution_删除比例.json文件
+    #   write_node_degree_distribution_to_file(node_degree_distribution, node_degree_path)
 
 
-      # 生成对应的coreness
-      coreness = node_coreness(nodes_deleted)
-      coreness_path = "../data/attack/coreness_distribution_{}.json".format(i)
-      write_corenss_tofile(coreness, coreness_path)
+    #   # 生成对应的coreness
+    #   coreness = node_coreness(nodes_deleted)
+    #   coreness_path = "../data/attack/coreness_distribution_{}.json".format(i)
+    #   write_corenss_tofile(coreness, coreness_path)
 
-      # 生成对应的node_clustering
-      node_clustering = cal_clustring(nodes_deleted)
-      cluster_path = "../data/attack/cluster_{}.json".format(i)
-      write_cluster_tofile(node_clustering, cluster_path)
+    #   # 生成对应的node_clustering
+    #   node_clustering = cal_clustring(nodes_deleted)
+    #   cluster_path = "../data/attack/cluster_{}.json".format(i)
+    #   write_cluster_tofile(node_clustering, cluster_path)
 
-      # 生成distance_distribution_删除比例.json文件
-      net_distance = NetDistance(nodes_deleted)
-      all_dict = net_distance.all_pair_node_distance()
-      distri_array = net_distance.all_pair_lenth_distribution(all_dict)
-      node_distance_path = "../data/attack/distance_distribution_{}.json".format(i)
-      net_distance.write_distance_distribution_to_file(distri_array, node_distance_path)
+    #   # 生成distance_distribution_删除比例.json文件
+    #   net_distance = NetDistance(nodes_deleted)
+    #   all_dict = net_distance.all_pair_node_distance()
+    #   distri_array = net_distance.all_pair_lenth_distribution(all_dict)
+    #   node_distance_path = "../data/attack/distance_distribution_{}.json".format(i)
+    #   net_distance.write_distance_distribution_to_file(distri_array, node_distance_path)
+    test_delete_node_distance()

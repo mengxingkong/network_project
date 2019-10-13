@@ -70,6 +70,7 @@ def write_node_degree_distribution_to_file(distri_array=[], file_path="../data/d
     with open(file_path, 'w') as f:
         f.write( json.dumps(degree_dict) )
 
+
 if __name__ == "__main__":
     reader = DataReader()
     net_array = reader.data_reader()

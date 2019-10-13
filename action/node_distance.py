@@ -129,10 +129,16 @@ class NetDistance(object):
 
     def all_pair_node_distance(self):
         all_dict = dict()
+        all_node_keys = {str(i) for i in range(1, self.node_count)}
         for i in range(1, self.node_count):
             nodelevel_dict = self.single_shortest_path_length_bfs([i])
+            node_level_keys = set( nodelevel_dict.keys() )  # 取出所有联通的节点的key
+            not_link_keys = all_node_keys.difference( node_level_keys )  # 使用集合运算 求出不可联通的节点 key
+            not_link_dict = {}
+            for n in not_link_keys:
+                not_link_dict.update({str(n):-1})
+            nodelevel_dict.update(not_link_dict)
             all_dict.update({str(i):nodelevel_dict})
-            print(i,max(nodelevel_dict.values()))
         return all_dict
 
     def write_dict_to_file(self, all_dict={}, file_path="../data/all_pair_distance.json"):
@@ -149,18 +155,23 @@ class NetDistance(object):
         distri_array = np.zeros(self.node_count)
         max_length = 0
         for i in range(1,self.node_count):
-            values_list = all_dict[str(i)].values()
+            values_list = list( all_dict[str(i)].values() )
             max_l = max(values_list)
             if max_l > max_length:
                 max_length = max_l
+        print( "max_length",max_length )
+        for i in range(1,self.node_count):
             for j in values_list:
-                distri_array[j] += 1
-        return distri_array[:max_length+1]
+                if j != -1:
+                    distri_array[j] += 1
+                else:
+                    distri_array[max_length+1] += 1
+        return distri_array[:max_length+2] # 添加一个 最大长度加一的横坐标 表示无穷大
         
     def write_distance_distribution_to_file(self, distri_array=[], file_path="../data/distance/distance_distribution.json"):
         list_x = list()
         list_y = list()
-        for i in range(1,distri_array.size):
+        for i in range(distri_array.size):
             list_x.append(str(i))
             list_y.append(distri_array[i])
         distance_dict = {"x":list_x,"y":list_y}
@@ -169,9 +180,9 @@ class NetDistance(object):
             f.write( json.dumps(distance_dict) )
 
 if __name__ == "__main__":
-    reader = DataReader()
-    net_array = reader.data_reader()
-    net_distance = NetDistance(net_array)
+    # reader = DataReader()
+    # net_array = reader.data_reader()
+    # net_distance = NetDistance(net_array)
 
     # # 对比两个算法的时间复杂度
     # start_time = datetime.datetime.now()
@@ -199,8 +210,8 @@ if __name__ == "__main__":
     # diameter = net_distance.net_diameter()
 
     # #测试 bfs
-    s = net_distance.single_shortest_path_length_bfs([1])
-    print(s)
+    # s = net_distance.single_shortest_path_length_bfs([1])
+    # print(s)
 
     #测试 bfs 计算的 diameter
     # print(net_distance.diameter_bfs())
@@ -229,4 +240,5 @@ if __name__ == "__main__":
     # plt.bar(range(len(distri_array)), distri_array)
     # plt.show()
     # plt.savefig("./path_distribution.png")
-    
+
+    pass    
