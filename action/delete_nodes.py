@@ -57,7 +57,7 @@ if __name__ == "__main__":
     reader = DataReader()
     net_array = reader.data_reader()
 
-    for i in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+    for i in [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
       # 删除i比例的节点
       nodes_deleted = delete_nodes(net_array, i)
 
